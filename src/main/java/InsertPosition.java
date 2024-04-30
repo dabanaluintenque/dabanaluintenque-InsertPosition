@@ -15,6 +15,29 @@ public class InsertPosition {
      * @return return the index that a number should be inserted into a sorted array.
      */
     public int searchInsert(int[] nums, int target) {
-        return -1;
+
+        int start = 0; 
+        int last = nums.length - 1;
+
+        while( start <= last) {
+
+            int middle = start + ( last - start) / 2;
+
+            if (nums[middle] == target) {
+
+                return middle;
+            }
+
+            if (nums[middle] < target) {
+
+                start = middle + 1;
+            }
+
+            if (nums[middle] > target) {
+
+                last = middle - 1;
+            }
+        }
+        return start;
     }
 }
